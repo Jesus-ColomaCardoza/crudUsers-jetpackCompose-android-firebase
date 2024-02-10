@@ -19,6 +19,7 @@ class UpdateViewModel @Inject constructor(
 ):ViewModel() {
     var titulo by mutableStateOf("")
     var contenido by mutableStateOf("")
+    var imageUrl by mutableStateOf("")//
 
     val id=savedStateHandle.get<Int>(key = "id")
 
@@ -28,11 +29,13 @@ class UpdateViewModel @Inject constructor(
             if (nota!=null){
                 contenido=nota.contenido
                 titulo=nota.titulo
+                imageUrl=nota.imageUrl
+
             }
         }
     }
 
     fun updateNota()=viewModelScope.launch {
-        useCase.updateNote(Note(id!!,titulo, contenido = contenido))
+        useCase.updateNote(Note(id!!,titulo, contenido = contenido,imageUrl=imageUrl))
     }
 }

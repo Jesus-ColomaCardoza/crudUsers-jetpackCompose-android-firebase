@@ -6,6 +6,7 @@ import com.fiel.note.ui.data.NoteDatabase
 import com.fiel.note.ui.data.ReposityImpl
 import com.fiel.note.ui.domain.usecase.DeleteNote
 import com.fiel.note.ui.domain.usecase.GetByIdNote
+import com.fiel.note.ui.domain.usecase.GetByPasswordNote
 import com.fiel.note.ui.domain.usecase.GetNotes
 import com.fiel.note.ui.domain.usecase.InsertNote
 import com.fiel.note.ui.domain.usecase.NoteUseCase
@@ -27,6 +28,7 @@ object NoteModule {
         name = "NoteDB"
     ).build()
 
+
     @Provides
     fun provideDao(dao:NoteDatabase)=dao.noteDao()
 
@@ -34,6 +36,8 @@ object NoteModule {
     fun provideNoteUseCase(repository:ReposityImpl)=NoteUseCase(
         getNotes = GetNotes(repository),
         getByIdNote = GetByIdNote(repository),
+        //trying
+        getByPasswordNote = GetByPasswordNote(repository),
         deleteNote = DeleteNote(repository),
         updateNote = UpdateNote(repository),
         insertNote = InsertNote(repository)
