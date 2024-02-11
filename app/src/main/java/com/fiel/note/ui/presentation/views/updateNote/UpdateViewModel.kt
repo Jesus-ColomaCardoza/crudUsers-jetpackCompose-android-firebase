@@ -20,6 +20,8 @@ class UpdateViewModel @Inject constructor(
     var titulo by mutableStateOf("")
     var contenido by mutableStateOf("")
     var imageUrl by mutableStateOf("")//
+    var latitud by mutableStateOf(0.0)//
+    var longitud by mutableStateOf(0.0)//
 
     val id=savedStateHandle.get<Int>(key = "id")
 
@@ -30,12 +32,22 @@ class UpdateViewModel @Inject constructor(
                 contenido=nota.contenido
                 titulo=nota.titulo
                 imageUrl=nota.imageUrl
-
+                latitud=nota.latitud
+                longitud=nota.longitud
             }
         }
     }
 
     fun updateNota()=viewModelScope.launch {
-        useCase.updateNote(Note(id!!,titulo, contenido = contenido,imageUrl=imageUrl))
+        useCase.updateNote(
+            Note(
+                id!!,
+                titulo,
+                contenido = contenido,
+                imageUrl=imageUrl,
+                latitud=latitud,
+                longitud=longitud
+            )
+        )
     }
 }

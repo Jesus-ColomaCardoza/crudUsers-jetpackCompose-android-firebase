@@ -20,8 +20,6 @@ interface Repository {
     fun getNotes():Flow<List<Note>>
     @Query("select * from note where id=:id")
     suspend fun getByIdNote(id:Int):Note
-
-    //trying
     @Query("select * from note where titulo=:titulo and contenido=:contenido")
     suspend fun getByPasswordNote(titulo:String,contenido:String):Note
 }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,11 +36,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,18 +63,6 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
     var userLogin by remember { mutableStateOf("") }
 
     Scaffold(
-        /*topBar = { TopAppBar(
-            navigationIcon = {
-                IconButton(onClick = {
-                    navController.popBackStack()
-                }) {
-                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
-                }
-            },
-            title = {
-                Text(text = "New User")
-            }
-        )}*/
     ) {
 
         Column(
@@ -82,20 +73,29 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                 .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                Spacer(modifier = Modifier.height(100.dp))
+                Spacer(modifier = Modifier.height(30.dp))
+
+                Text(
+                    text = "Log in",
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 40.sp
+                )
+
+                Spacer(modifier = Modifier.height(20.dp))
 
                 AsyncImage(
                     model = "https://cdn-icons-png.flaticon.com/512/11832/11832458.png",
                     contentDescription = null,
                     modifier = Modifier
                         .size(200.dp)
+                        .shadow(5.dp, CircleShape)
                         .clip(CircleShape),
                     contentScale = ContentScale.Crop,
                 )
@@ -104,7 +104,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
 
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Titulo") },
+                    label = { Text(text = "User Name") },
                     value = viewModel.titulo,
                     onValueChange = {
                         viewModel.titulo = it
@@ -113,8 +113,9 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                 Spacer(modifier = Modifier.height(20.dp))
 
                 OutlinedTextField(
+                    visualTransformation = PasswordVisualTransformation('*'),
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Contenido") },
+                    label = { Text(text = "Password") },
                     value = viewModel.contenido,
                     onValueChange = {
                         viewModel.contenido = it
@@ -132,6 +133,24 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                     }) {
                     Text(
                         text = "Login",
+                        color = Color.White,
+                        modifier = Modifier.padding(7.dp),
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Button(
+                    colors = ButtonDefaults.buttonColors(Color(170, 24, 65, 255)),
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RectangleShape,
+                    onClick = {
+                        navController.navigate(Screens.SignupScreen.route)
+                    }) {
+                    Text(
+                        text = "Sign up",
                         color = Color.White,
                         modifier = Modifier.padding(7.dp),
                         fontSize = 15.sp,

@@ -17,8 +17,15 @@ class AddViewModel @Inject constructor(private val useCase: NoteUseCase):ViewMod
     var titulo by mutableStateOf("")
     var contenido by mutableStateOf("")
     var imageUrl by mutableStateOf("")//
+    var latitud by mutableStateOf(0.0)//
+    var longitud by mutableStateOf(0.0)//
 
     fun addNote()=viewModelScope.launch {
-        useCase.insertNote(Note(titulo = titulo, contenido = contenido, imageUrl = imageUrl))//
+        useCase.insertNote(Note(
+            titulo = titulo,
+            contenido = contenido,
+            imageUrl = imageUrl,
+            latitud=latitud,
+            longitud=longitud))
     }
 }

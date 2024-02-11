@@ -1,0 +1,85 @@
+package com.fiel.note.ui.data
+
+data class AvatarsData(
+    val id: Int,
+    val ImageUrl: String,
+)
+
+val avatars= listOf(
+    AvatarsData(
+        0,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAyu0d5BmsgOXgLZcuUIWVZS1NAVfhkXtOizGR01Uesy4hGTxhn0MAeGcRF_DEWZo4FYE&usqp=CAU"
+    ),
+    AvatarsData(
+        1,
+        "https://us.123rf.com/450wm/alexutemov/alexutemov1609/alexutemov160900193/62295615-animales-mapache-cabeza-emoción-vector-avatar-linda-aislado-de-dibujos-animados-feliz-mapache.jpg"
+    ),
+    AvatarsData(
+        2,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnmBvRNSQKaG59US-Ny6brEJcyYmKEWNOkJA&usqp=CAU"
+    ),
+    AvatarsData(
+        3,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8C3u4edB9iEUj2RJJyUHjswQqj9kB8gXtC5R0V-oAl9Uu2mrcMuOb5zFrSw5RYzGt-wM&usqp=CAU"
+    ),
+    AvatarsData(
+        4,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNfOer9eQbJvThcDmbTwCHEiltODbJGJHXugvdjva74wULoUYXZa44s3AdXKZNSQvSAmM&usqp=CAU"
+    ),
+    AvatarsData(
+        5,
+        "https://c8.alamy.com/compes/2m9mnmn/aislado-lindo-raton-avatar-personaje-vector-2m9mnmn.jpg"
+    ),
+    AvatarsData(
+        6,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-4Egaj2u8lfmRlwMnwmQKmggOFYnZ3zZahA&usqp=CAU"
+    ),
+    AvatarsData(
+        7,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1kj_kWQbya9GUrPvy8SD-mtFlM2_z4v5Lg&usqp=CAU"
+    ),
+    AvatarsData(
+        8,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd3y4zsU6iY2Bd3aVFMJmfLZNRW4vM7qz-1g&usqp=CAU"
+    ),
+    AvatarsData(
+        9,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC3QsPKSTzGl8JxxIx0IiSu2Jwh2yz1QJMfw&usqp=CAU"
+    ),
+    AvatarsData(
+        10,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ol_1foTEG2r2TCXto5BAm_4M92fHHX4exA&usqp=CAU"
+    ),
+    AvatarsData(
+        11,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUFiqXEWEWwHB3hl0B1ZOFIKogz2m76vf9RA&usqp=CAU"
+    ),
+    AvatarsData(
+        12,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGf69kDCpckGaoQ3fDkJq7Pid6LfhRg7VlLA&usqp=CAU"
+    ),
+    AvatarsData(
+        13,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw9pfz-7lQxkwhH0QFnA51mLGdAqPI0z2HIw&usqp=CAU"
+    ),
+    AvatarsData(
+        14,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkJif48RH-a6F5PdStdk4w7evwF_li_oaEbg&usqp=CAU"
+    ),
+    AvatarsData(
+        15,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZpfgnMrN-AREsick5LQsCUKWCryx_PbWfgA&usqp=CAU"
+    ),
+    AvatarsData(
+        16,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG8DZWbW7rWVFLNnN4x9QiG6mEgVAKgHwOrw&usqp=CAU"
+    ),
+    AvatarsData(
+        17,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgMgLyI6KgWere_PKpwVTNv2ECDSsq6yJIJA&usqp=CAU"
+    ),
+    AvatarsData(
+        18,
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV8NyAlp1_8ULkItz8JL2JC6R-9m_x6BFkAA&usqp=CAU"
+    )
+)

@@ -72,7 +72,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-
     //room-database
     implementation("androidx.room:room-runtime:2.6.0")
     implementation ("androidx.room:room-ktx:2.6.0")
@@ -89,5 +88,9 @@ dependencies {
 
     //to load images
     implementation ("io.coil-kt:coil-compose:2.5.0")
+
+    //maps
+    implementation ("com.google.maps.android:maps-compose:1.0.0")
+    implementation ("com.google.android.gms:play-services-maps:18.2.0")
 
 }

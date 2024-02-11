@@ -166,6 +166,12 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                                 Spacer(modifier = Modifier.height(4.dp))
                                 Text(text = it.contenido)
                                 Spacer(modifier = Modifier.height(4.dp))
+
+                                Text(text = ""+it.latitud)
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(text = ""+it.longitud)
+                                Spacer(modifier = Modifier.height(4.dp))
+
                             }
                         }
 
