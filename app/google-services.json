@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253496422393",
+    "project_id": "crud-users-jetpack-compose",
+    "storage_bucket": "crud-users-jetpack-compose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253496422393:android:1363aea6f0bcf7ade69728",
+        "android_client_info": {
+          "package_name": "com.fiel.note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCunvsHWtM-6R6sH22-2w0CZCHxJQZv8T4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

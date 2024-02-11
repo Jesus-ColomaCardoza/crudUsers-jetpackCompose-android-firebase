@@ -57,7 +57,12 @@ import com.google.maps.android.compose.Marker
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddScreen(navController: NavHostController, viewModel: AddViewModel = hiltViewModel()) {
+fun AddScreen(
+    navController: NavHostController,
+    viewModel: AddViewModel = hiltViewModel(),
+    //state:UserAddState,
+    //addUser:(String,String)->Unit
+) {
 
     var seeMap by remember { mutableStateOf(false) }
 
@@ -146,6 +151,7 @@ fun AddScreen(navController: NavHostController, viewModel: AddViewModel = hiltVi
                     shape = RectangleShape,
                     onClick = {
                         viewModel.addNote()
+                        //addUser()
                         navController.popBackStack()
                     }) {
                     Text(text = "Add user",color = Color.White)
