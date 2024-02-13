@@ -54,7 +54,9 @@ import com.fiel.note.ui.presentation.views.login.LoginViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hiltViewModel()) {
-    val notes = viewModel.notes.collectAsState(initial = emptyList())
+
+    val notes = viewModel.notes1.collectAsState(initial = emptyList())
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -105,7 +107,11 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                 Box(
                     modifier = Modifier
                         .padding(10.dp)
-                        .border(3.dp, color = Color(8, 117, 138), shape = RoundedCornerShape(20.dp))
+                        .border(
+                            3.dp,
+                            color = Color(8, 117, 138),
+                            shape = RoundedCornerShape(20.dp)
+                        )
                 ) {
 
                     Column(modifier = Modifier.padding(10.dp)) {
@@ -128,7 +134,7 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                                 )
                             }
                             IconButton(onClick = {
-                                viewModel.deleteNote(note = it)
+                                //viewModel.deleteNote(note = it)
                             }) {
                                 Icon(
                                     tint = Color(238, 82, 34, 255),
@@ -159,17 +165,16 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                                 //modifier = Modifier.fillMaxSize().background(Color.Gray),
                             ) {
                                 Text(
-                                    text = it.titulo,
+                                    text = it.username,
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 24.sp
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
-                                Text(text = it.contenido)
+                                Text(text = it.password)
                                 Spacer(modifier = Modifier.height(4.dp))
-
-                                Text(text = ""+it.latitud)
+                                Text(text = ""+it.latitude)
                                 Spacer(modifier = Modifier.height(4.dp))
-                                Text(text = ""+it.longitud)
+                                Text(text = ""+it.longitude)
                                 Spacer(modifier = Modifier.height(4.dp))
 
                             }

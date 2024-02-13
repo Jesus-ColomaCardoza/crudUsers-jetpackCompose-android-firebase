@@ -23,7 +23,7 @@ class UpdateViewModel @Inject constructor(
     var latitud by mutableStateOf(0.0)//
     var longitud by mutableStateOf(0.0)//
 
-    val id=savedStateHandle.get<Int>(key = "id")
+    val id=savedStateHandle.get<String>(key = "id")
 
     init {
         viewModelScope.launch {

@@ -39,7 +39,7 @@ fun AppNavigation(navController: NavHostController) {
         composable(
             route = Screens.UpdateScreen.route, arguments = listOf(
                 navArgument("id"){
-                    type= NavType.IntType
+                    type= NavType.StringType
                 }
             )
         ){
@@ -54,6 +54,6 @@ sealed class Screens(val route:String){
     data object HomeScreen:Screens("home")
     data object AddScreen:Screens("add")
     data object UpdateScreen:Screens("update/{id}"){
-        fun getById(id:Int)="update/$id"
+        fun getById(id:String)="update/$id"
     }
 }

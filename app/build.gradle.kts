@@ -99,5 +99,7 @@ dependencies {
     implementation (platform("com.google.firebase:firebase-bom:28.4.0"))
     implementation ("com.google.firebase:firebase-firestore-ktx")
 
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.5")
 
 }

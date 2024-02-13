@@ -20,8 +20,6 @@ class AddViewModel
 constructor(
     private val useCase: NoteUseCase,
     private val userRepository: UserRepository
-
-
 ):ViewModel() {
 
     var titulo by mutableStateOf("")
@@ -31,6 +29,7 @@ constructor(
     var longitud by mutableStateOf(0.0)//
 
     fun addNote()=viewModelScope.launch {
+        //In Room
         useCase.insertNote(Note(
             titulo = titulo,
             contenido = contenido,
@@ -38,6 +37,7 @@ constructor(
             latitud=latitud,
             longitud=longitud))
 
+        //In firebase
         val user = User(
             id= UUID.randomUUID().toString(),
             username=titulo,
