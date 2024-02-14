@@ -11,6 +11,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object UserModule {
 
+    //we create the firebase instance
     @Provides
     @Singleton
     fun provideFirestoreInstance() = FirebaseFirestore.getInstance()
@@ -18,7 +19,7 @@ object UserModule {
     //we create the collection users in firebase
     @Provides
     @Singleton
-    fun provideBookList(
+    fun provideUserList(
         firestore: FirebaseFirestore
     ) = firestore.collection("users")
 }

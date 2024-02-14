@@ -132,7 +132,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
 
                     }) {
                     Text(
-                        text = "Login",
+                        text = "Log in",
                         color = Color.White,
                         modifier = Modifier.padding(7.dp),
                         fontSize = 15.sp,

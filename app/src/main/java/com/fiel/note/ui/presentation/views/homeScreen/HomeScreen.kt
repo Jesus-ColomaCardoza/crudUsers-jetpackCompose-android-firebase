@@ -134,7 +134,9 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                                 )
                             }
                             IconButton(onClick = {
-                                //viewModel.deleteNote(note = it)
+                                viewModel.deleteNote(it.id)
+                                //refresh the screen
+                                navController.navigate(Screens.HomeScreen.route)
                             }) {
                                 Icon(
                                     tint = Color(238, 82, 34, 255),

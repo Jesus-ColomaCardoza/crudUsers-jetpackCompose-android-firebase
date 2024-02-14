@@ -231,6 +231,11 @@ fun PickImageFromGallery(viewModel: AddViewModel = hiltViewModel()) {
 fun myGoogleMaps(viewModel: AddViewModel = hiltViewModel()){
     //UNP location -5.176953123533414,-80.61788197606802,
     var markerPosition by remember { mutableStateOf(LatLng(-5.176953123533414,-80.61788197606802)) }
+
+    //values for default of latitude and longitude if the user doesn't choose his coordinates
+    viewModel.latitud= markerPosition.latitude
+    viewModel.longitud= markerPosition.longitude
+
     val zoomLevel = 15f // Nivel de zoom deseado
     val tilt = 0f // Inclinación (0 para vista desde arriba)
     val bearing = 0f // Orientación de la cámara (0 para norte)

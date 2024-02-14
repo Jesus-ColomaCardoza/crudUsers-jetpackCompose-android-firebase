@@ -13,29 +13,78 @@ class UserRepository
 @Inject
 constructor(
     private val userList: CollectionReference
-)
-{
-    fun addUser(user: User){
+) {
+
+    fun deleteUser(id: String) {
         try {
-            //we create a new document user (register or row) in the collection users(database)
-            userList.document(user.id).set(user)
-        } catch (e: Exception){
+            userList.document(id).delete()
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun getUsers():Flow<List<User>> = flow {
-        //try {
-            //emit(UserResult.Loading<List<User>>())
+    fun updateUser(id: String, user: User) {
+        try {
+            val map = mapOf(
+                "username" to user.username,
+                "password" to user.password,
+                "imageUrl" to user.imageUrl,
+                "latitude" to user.latitude,
+                "longitude" to user.longitude
+            )
+            userList.document(id).update(map)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
-            val userList = userList.get().await().map{ document ->
+    fun addUser(user: User) {
+        try {
+            //we create a new document user (register or row) in the collection users(database)
+            userList.document(user.id).set(user)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun getUsers(): Flow<List<User>> = flow {
+        try {
+            val userList = userList.get().await().map { document ->
                 document.toObject(User::class.java)
             }
-
-
             emit(userList)
-        //} catch (e: Exception) {
-            //emit(UserResult.Error<List<User>>(message = e.localizedMessage ?: "Error Desconocido"))
-        //}
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
+
+    fun getUserById(id: String): Flow<User> = flow {
+        try {
+            val user = userList
+                .whereGreaterThanOrEqualTo("id", id)
+                .get()
+                .await()
+                .toObjects(User::class.java)
+                .first()
+            emit(user)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun getUserByUsernameAndPassword(username: String,password: String): Flow<User> = flow {
+        try {
+            val user = userList
+                .whereEqualTo("username", username)
+                .whereEqualTo("password", password)
+                .get()
+                .await()
+                .toObjects(User::class.java)
+                .first()
+            emit(user)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
 }

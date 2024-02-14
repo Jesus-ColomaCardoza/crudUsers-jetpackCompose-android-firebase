@@ -25,7 +25,12 @@ constructor(
     //In firebase
     val notes1=userRepository.getUsers()
 
-    fun deleteNote(note:Note)=viewModelScope.launch {
-        useCase.deleteNote(note)
+    fun deleteNote(id:String/*note:Note*/)=viewModelScope.launch {
+        //In Room
+        //useCase.deleteNote(note)
+
+        //In firebase
+        userRepository.deleteUser(id)
     }
+
 }
