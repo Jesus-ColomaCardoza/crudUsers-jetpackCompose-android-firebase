@@ -108,9 +108,9 @@ fun SignupScreen(navController: NavHostController, viewModel: SignupViewModel = 
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = "User Name") },
-                    value = viewModel.titulo,
+                    value = viewModel.username,
                     onValueChange = {
-                        viewModel.titulo = it
+                        viewModel.username = it
                     })
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -119,9 +119,9 @@ fun SignupScreen(navController: NavHostController, viewModel: SignupViewModel = 
                     visualTransformation = PasswordVisualTransformation('*'),
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = "Password") },
-                    value = viewModel.contenido,
+                    value = viewModel.password,
                     onValueChange = {
-                        viewModel.contenido = it
+                        viewModel.password = it
                     })
 
                 Spacer(modifier = Modifier.height(20.dp))

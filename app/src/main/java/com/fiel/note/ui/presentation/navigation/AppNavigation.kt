@@ -1,14 +1,12 @@
 package com.fiel.note.ui.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.fiel.note.ui.presentation.views.AddNote.AddScreen
-import com.fiel.note.ui.presentation.views.AddNote.UserAddViewModel
 import com.fiel.note.ui.presentation.views.homeScreen.HomeScreen
 import com.fiel.note.ui.presentation.views.login.LoginScreen
 import com.fiel.note.ui.presentation.views.signup.SignupScreen
@@ -30,11 +28,7 @@ fun AppNavigation(navController: NavHostController) {
             HomeScreen(navController)
         }
         composable(route = Screens.AddScreen.route){
-
-            //val viewModel:UserAddViewModel= hiltViewModel()
-            //val state= viewModel.state.value
-
-            AddScreen(navController/*,state=state,addUser=viewModel::addUser*/)
+            AddScreen(navController)
         }
         composable(
             route = Screens.UpdateScreen.route, arguments = listOf(

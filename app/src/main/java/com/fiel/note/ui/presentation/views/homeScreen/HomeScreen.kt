@@ -42,6 +42,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -94,11 +95,12 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
         },
         floatingActionButton = {
             FloatingActionButton(
+                containerColor=Color(8, 117, 138),
                 onClick = {
                     navController.navigate(Screens.AddScreen.route)
                 }
             ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "")
+                Icon(imageVector = Icons.Default.Add, contentDescription = "",tint= Color.White)
             }
         }
     ) {
@@ -110,11 +112,11 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                         .border(
                             3.dp,
                             color = Color(8, 117, 138),
-                            shape = RoundedCornerShape(20.dp)
+                            shape = RoundedCornerShape(10.dp)
                         )
                 ) {
 
-                    Column(modifier = Modifier.padding(10.dp)) {
+                    Column(modifier = Modifier.padding(15.dp)) {
 
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -167,16 +169,16 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
                                 //modifier = Modifier.fillMaxSize().background(Color.Gray),
                             ) {
                                 Text(
-                                    text = it.username,
+                                    text = "\uD83D\uDE4D\uD83C\uDFFB\u200D♂️ "+it.username,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 24.sp
+                                    fontSize = 25.sp
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
-                                Text(text = it.password)
+                                Text(text ="\uD83D\uDD12 Password: "+ it.password, fontStyle = FontStyle.Italic,fontSize = 15.sp)
                                 Spacer(modifier = Modifier.height(4.dp))
-                                Text(text = ""+it.latitude)
+                                Text(text = "Latitude: "+it.latitude, fontSize = 12.sp)
                                 Spacer(modifier = Modifier.height(4.dp))
-                                Text(text = ""+it.longitude)
+                                Text(text = "Longitude: "+it.longitude,fontSize = 12.sp)
                                 Spacer(modifier = Modifier.height(4.dp))
 
                             }
