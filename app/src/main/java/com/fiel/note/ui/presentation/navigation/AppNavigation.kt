@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.fiel.note.ui.presentation.views.AddNote.AddScreen
+import com.fiel.note.ui.presentation.views.dashboard.DashboardScreen
 import com.fiel.note.ui.presentation.views.homeScreen.HomeScreen
 import com.fiel.note.ui.presentation.views.login.LoginScreen
 import com.fiel.note.ui.presentation.views.signup.SignupScreen
@@ -16,8 +17,11 @@ import com.fiel.note.ui.presentation.views.updateNote.UpdateScreen
 fun AppNavigation(navController: NavHostController) {
     NavHost(
         navController =navController
-        , startDestination = Screens.LoginScreen.route
+        , startDestination = Screens.DashboardScreen.route
     ){
+        composable(route = Screens.DashboardScreen.route){
+            DashboardScreen(navController)
+        }
         composable(route = Screens.LoginScreen.route){
             LoginScreen(navController)
         }
@@ -43,6 +47,7 @@ fun AppNavigation(navController: NavHostController) {
 }
 
 sealed class Screens(val route:String){
+    data object DashboardScreen:Screens("dashboard")
     data object LoginScreen:Screens("login")
     data object SignupScreen:Screens("signup")
     data object HomeScreen:Screens("home")
