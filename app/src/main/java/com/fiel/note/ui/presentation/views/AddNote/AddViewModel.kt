@@ -30,8 +30,8 @@ constructor(
         //In firebase
         val user = User(
             id= UUID.randomUUID().toString(),
-            username=username,
-            password=password,
+            username=username.trim(),
+            password=password.trim(),
             //change image
             imageUrl=imageUrl,
             latitude=latitud,

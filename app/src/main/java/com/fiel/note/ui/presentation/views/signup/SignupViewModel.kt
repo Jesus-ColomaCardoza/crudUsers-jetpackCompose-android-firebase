@@ -30,8 +30,8 @@ constructor(
             User(
             id= UUID.randomUUID().toString(),
             //these parameters are pull out to the user
-            username=username,
-            password=password,
+            username=username.trim(),
+            password=password.trim(),
             //Image for default
             imageUrl = "https://cdn-icons-png.flaticon.com/512/11832/11832458.png",
             //UNP location for default will are -5.176953123533414,-80.61788197606802

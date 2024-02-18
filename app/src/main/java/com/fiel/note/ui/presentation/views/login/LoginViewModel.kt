@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(
     fun Login() =  viewModelScope.launch {
 
         //In firebase
-        val user=userRepository.getUserByUsernameAndPassword(username,password)
+        val user=userRepository.getUserByUsernameAndPassword(username.trim(),password.trim())
         if (user.firstOrNull()!=null){
             isUser="login"
         }else{

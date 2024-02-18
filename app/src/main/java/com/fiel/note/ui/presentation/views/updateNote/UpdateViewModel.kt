@@ -46,8 +46,8 @@ class UpdateViewModel @Inject constructor(
 
         val user = User(
             id!!,
-            username=username,
-            password=password,
+            username=username.trim(),
+            password=password.trim(),
             imageUrl=imageUrl,
             latitude=latitud,
             longitude =longitud,

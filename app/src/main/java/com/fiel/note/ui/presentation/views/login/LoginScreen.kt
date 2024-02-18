@@ -3,6 +3,7 @@ package com.fiel.note.ui.presentation.views.login
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,14 +14,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -50,6 +54,19 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
     var userLogin by remember { mutableStateOf("") }
 
     Scaffold(
+        topBar = { TopAppBar(
+            navigationIcon = {
+                IconButton(onClick = {
+                    navController.navigate(Screens.DashboardScreen.route)
+                }) {
+                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
+                }
+            },
+            title = {
+                Text(text = "")
+            }
+        )
+        }
     ) {
 
         Column(
@@ -66,7 +83,6 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                Spacer(modifier = Modifier.height(30.dp))
 
                 Text(
                     text = "Log in",
@@ -97,7 +113,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                         viewModel.username = it
                     })
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 OutlinedTextField(
                     visualTransformation = PasswordVisualTransformation('*'),
@@ -127,7 +143,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                     )
                 }
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 Button(
                     colors = ButtonDefaults.buttonColors(Color(170, 24, 65, 255)),
@@ -144,6 +160,8 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
                         fontWeight = FontWeight.Bold
                     )
                 }
+
+                Spacer(modifier = Modifier.height(10.dp))
             }
 
             //Error Message
@@ -151,12 +169,12 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = hi
             if (userLogin == "login") {
                 navController.navigate(Screens.HomeScreen.route)
             } else if (userLogin == "no-login") {
-                Column(
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .border(5.dp, Color(240, 96, 96, 255))
                         .padding(10.dp, 20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
                         modifier = Modifier.size(80.dp),
